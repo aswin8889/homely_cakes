@@ -1,0 +1,57 @@
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-5 pb-sm-4 pb-2">
+            <h4 class="inner-text-title font-weight-bold pt-5">Feedback</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/userhome">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right mx-2"></i>Feedback</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% extends "user/userbase.html"  %}
+{% block content %}
+<style>
+    .rating{
+        padding: 10px;
+        border-radius: 5px;
+    }
+</style>
+    <!-- contact section -->
+    <section class="w3l-contact-2 py-5 align-items-center" id="contact">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="w3l-header-sec text-center mb-md-5 mb-4">
+                <!-- <h5 class="sub-title">User </h5> -->
+                <h3 class="title-style">Feedback</h3>
+            </div>
+            <div class="contact-grids">
+                <div class="contact-right">
+                    <form method="post" class="signin-form" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="input-grids" style="margin-left: 70px;">
+
+                            <input type="text" name="title" id="w3lSender" placeholder="title *"
+                                class="contact-input" required="" />
+
+                            <input type="text" name="feedback" id="w3lSender" placeholder="Description *"
+                                class="contact-input" required="" />
+                                <label for="cars">Rating
+                                <select name="rating" class="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="form-buttonhny text-lg-center">
+                            <button class="btn btn-style btn-primary">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //contact section -->
+{% endblock %}

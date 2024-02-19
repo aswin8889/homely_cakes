@@ -1,0 +1,40 @@
+
+from django.contrib import admin
+from cakes import views
+from django.urls import path
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', views.index),
+    path('registration_user', views.registration_user),
+    path('registration_baker', views.registration_baker),
+    path('login', views.login),
+    path('adminhome', views.adminhome),
+    path('bakerhome', views.bakerhome),
+    path('userhome', views.userhome),
+    path('deletebakers', views.deletebakers),
+    path('manage_bakers', views.manage_bakers),
+    path('manage_users', views.manage_users),
+    path('deleteusers', views.deleteusers),
+    path('view_feedback', views.view_feedback),
+    path('addcake', views.addcake),
+    path('viewcakebaker', views.viewcakebaker),
+    path('updatecake', views.updatecake),
+    path('deletecake', views.deletecake),
+    path('viewcakesuser', views.viewcakesuser),
+    path('requestcake', views.requestcake),
+    path('viewbakers_user', views.viewbakers_user),
+    path('viewrequest_baker', views.viewrequest_baker),
+    path('accept_order', views.accept_order),
+    path('reject_order', views.reject_order),
+    path('message_user', views.message_user),
+    path('view_message_baker', views.view_message_baker),
+    path('view_message_user', views.view_message_user),
+    path('viewrequests_user', views.viewrequests_user),
+    path('userbooking', views.userbooking),
+    path('viewbooking_baker', views.viewbooking_baker),
+    path('viewbooking_user', views.viewbooking_user),
+    path('payment', views.payment),
+    path('cancelbooking', views.cancelbooking),
+    path('feedback', views.feedback),
+]

@@ -1,0 +1,61 @@
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-5 pb-sm-4 pb-2">
+            <h4 class="inner-text-title font-weight-bold pt-5">Baker</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right mx-2"></i>Registration Baker</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% extends "commonbase.html"  %}
+{% block content %}
+    <!-- contact section -->
+    <section class="w3l-contact-2 py-5 align-items-center" id="contact">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <div class="w3l-header-sec text-center mb-md-5 mb-4">
+                <h5 class="sub-title">backer </h5>
+                <h3 class="title-style">Registration</h3>
+            </div>
+            <div class="contact-grids ">
+                <div class="contact-center">
+                    <form method="post" class="signin-form" enctype="multipart/form-data"  style="margin-left: 60px;">
+                        {% csrf_token %}
+                        <div class="input-grids">
+
+                            <input type="text" name="name" id="w3lName" placeholder="Your Name*"
+                                class="contact-input" required="" />
+                            <input type="text" name="b_name" id="w3lName" placeholder="Your Company Name*"
+                                class="contact-input" required="" />
+                                <label id="w3lName">Profile Image
+                            <input type="file" name="profile" id="w3lName" placeholder="Your Company Name*"
+                                class="contact-input" required="" /></label>
+                            <input type="text" name="address" id="w3lSender" placeholder="Your Address*"
+                                class="contact-input" required="" />
+                            <input type="number" name="contact" id="w3lSubect" placeholder="Your Number*"
+                                class="contact-input" required="" />
+                            <input type="email" name="email" id="w3lSubect" placeholder="Your email*"
+                                class="contact-input" required="" />
+                            <input type="password" name="password" id="w3lSubect" placeholder="Your Password*"
+                                class="contact-input" required="" />
+                            <input type="password" id="w3lSubect" placeholder="Confirm Password*"
+                                class="contact-input" required="" />
+                         
+                        </div>
+                        <div class="form-buttonhny text-lg-center">
+                            <button class="btn btn-style btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    {% if messages %}
+    {% for m in messages %}
+    <script>alert("{{m}}")</script>
+    {% endfor %}
+    {% endif %}
+    
+    {% endblock %}

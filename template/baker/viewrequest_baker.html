@@ -1,0 +1,68 @@
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-5 pb-sm-4 pb-2">
+            <h4 class="inner-text-title font-weight-bold pt-5">View Requests</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/bakerhome">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right mx-2"></i>View Requests</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% extends "baker/bakerbase.html"  %}
+{% block content %}
+     <!-- courses section -->
+     <section class="w3l-courses py-5" id="courses">
+        <div class="container py-lg-5 py-md-4 py-2">
+            <h5 class="sub-title text-center">Requests From</h5>
+            <h3 class="title-style text-center">Users</h3>
+            <div class="row justify-content-center">
+                {% for r in requests %}
+                <div class="col-lg-4 col-md-6 item mt-5">
+                    <div class="card">
+                        <div class="card-body course-details">
+                            <p>Request from : {{r.userId.name}}</p>
+                            <div class="price-review d-flex justify-content-between mb-1align-items-center">
+                                
+                                <p>{{r.flavour}}</p>
+                                <span class="meta-value">{{r.quantity}}</span>
+                                <!-- <ul class="rating-star">
+                                    <li><span class="fas fa-star"></span></li>
+                                    <li><span class="fas fa-star"></span></li>
+                                    <li><span class="fas fa-star"></span></li>
+                                    <li><span class="fas fa-star"></span></li>
+                                    <li><span class="fas fa-star-o"></span></li>
+                                </ul> -->
+                            </div>
+                            <a href="classes.html" class="course-desc">{{r.desc}}</a>
+                            <div class="course-meta mt-4">
+                                <div class="meta-item course-lesson">
+                                    <!-- <span class="fas fa-users"></span> -->
+                                    <span class="meta-value"> {{r.date}}</span>
+                                    <span class="meta-value"> {{r.time}}</span>
+                                    <div>
+                                        {% if r.status == "pending" %}
+                                        <a href="/accept_order?id={{r.id}}" class="receipe success">Accept</a>
+                                        <a href="/reject_order?id={{r.id}}" class="receipe yellow ml-2">Reject</a>
+                                        {% elif r.status == "Accepted" %}
+                                        <a href="/message_user?id={{r.id}}" class="receipe danger">Message</a>
+                                        {% elif r.status == "Rejected" %}
+                                        <a href="/viewrequest_baker" class="receipe danger">Rejected</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- //courses section -->
+    {% if messages %}
+    {% for m in messages %}
+    <script>alert("{{m}}")</script>
+    {% endfor %}
+    {% endif %}
+{% endblock %}

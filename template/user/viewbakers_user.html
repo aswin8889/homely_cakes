@@ -1,0 +1,52 @@
+<section class="inner-banner py-5">
+    <div class="w3l-breadcrumb py-lg-5">
+        <div class="container pt-5 pb-sm-4 pb-2">
+            <h4 class="inner-text-title font-weight-bold pt-5">Bakers</h4>
+            <ul class="breadcrumbs-custom-path">
+                <li><a href="/userhome">Home</a></li>
+                <li class="active"><i class="fas fa-angle-right mx-2"></i>View Bakers</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% extends "user/userbase.html"  %}
+{% block content %}
+    
+    <!-- team section -->
+    <div class="w3l-team-grids-sec py-5" id="team">
+        <div class="container pb-lg-5 pb-md-4 pb-2">
+            <!-- <h5 class="sub-title text-center">Team of Professionals</h5> -->
+            <h3 class="title-style text-center">Bakers</h3>
+            <div class="row cards justify-content-center">
+                {% for d in bakers %}
+                <div class="col-lg-4 col-md-6 mt-5">
+                    <a href="#img" class="card">
+                        <img src="../static/media/{{d.profile}}" class="card__image radius-image" alt="" />
+                        <div class="card__overlay">
+                            <div class="card__header">
+                                <svg class="card__arc" xmlns="http://www.w3.org/2000/svg">
+                                    <path />
+                                </svg>
+                                <div class="card__header-text">
+                                    <h3 class="card__title">{{d.name}}</h3>
+                                    <span class="card__status">{{d.b_name}}</span>
+                                </div>
+                            </div>
+                            <p class="card__description">Address : {{d.address}}</p>
+                            <p class="card__description">Contact : {{d.contact}}</p>
+                            <p class="card__description"> Email : {{d.email}}</p>
+                            </div>
+                    </a>
+                    <br>
+                    <div class="form-buttonhny text-lg-center">
+                    <a href="/requestcake?id={{d.id}}"><button class="btn btn-style btn-primary">Request</button></a>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- //team section -->
+</table>
+    {% endblock %}
